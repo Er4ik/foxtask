@@ -4,6 +4,12 @@
     height: 100%;
 }
 
+// .tasks__container {
+//     width: 100%;
+//     height: 5000px;
+//     overflow-y: scroll;
+// }
+
 .tasks__header {
     width: 100%;
     height: auto;
@@ -34,6 +40,7 @@
     box-shadow: 0 6px 12px rgba(255, 161, 37, 0);
     transition: all 250ms ease;
     cursor: pointer;
+    user-select: none;
 }
 
 .header__button:hover {
@@ -52,52 +59,15 @@
 }
 
 .tasks__item {
-    width: 225px;
-    height: 225px;
-    // background-color: #dcdfe5;
+    width: 200px;
+    height: 200px;
+    // border: 1px solid black;
     background-color: #F5F6FA;
-    // background-color: rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    padding: 12px;
+    padding: 2rem;
     cursor: pointer;
     transition: all 250ms ease;
     margin-bottom: 16px;
     margin-right: 16px;
     word-break: break-all;
-    // border: 1px solid black;
 }
-
-.tasks__title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.tasks__name {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.tasks__id {
-    font-size: 16px;
-    color: grey;
-}
-
-.tasks__due {
-    margin-bottom: 8px;
-}
-
-// .tasks__item-default {
-//     // background-color: #F5F6FA;
-//     background-color: rgba(255, 255, 255, 0.25);
-// }
-
-// .tasks__item-deadline {
-//     background-color: rgba(0, 0, 0, 0.05);
-//     background-color: rgba(255, 0, 0, 0.1);
-
-// }
-
-// .tasks__item-warning {
-
-// }

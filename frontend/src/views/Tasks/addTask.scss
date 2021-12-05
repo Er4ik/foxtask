@@ -1,0 +1,212 @@
+@import '../../styles/variables.scss';
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.modal__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    padding: 32px;
+    background-color: white;
+    border-radius: 8px;
+    overflow-y: hidden;
+}
+
+.modal__top {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+}
+
+.modal__left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: start;
+}
+
+.modal__right {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+    width: 100%;
+}
+
+.modal__input {
+    width: 100%;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: $foreground-alt3;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal__description {
+    height: 6em;
+    resize: none;
+}
+
+.modal__input:focus {
+    background-color: $foreground-alt4;
+}
+
+.modalClose {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-size: 30px;
+    color: var(--black_ligth);
+    opacity: 0.5;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.modal__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    font-size: 22px;
+}
+
+.subtask__add {
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.subtask__add:hover {
+    color: $foreground-alt4;
+}
+
+.input .label {
+    margin: .4rem 0;
+}
+
+.bottom__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.bottom__right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bottom__left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%
+}
+
+.modal__select {
+    border: none;
+    background-color: $foreground-alt3;
+    padding: 8px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+}
+
+.subtask__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    scroll-padding: 50px 0 0 50px;
+    overflow-y: scroll;
+    height: 512px;
+}
+
+.subtask {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: $foreground-alt3;
+    width: 100%;
+    gap: 8px;
+    border-radius: 8px;
+}
+
+.subtask__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.subtask__input {
+    width: 100%;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
+    font-family: 'Inter', sans-serif;
+}
+
+.subtask__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.subtask__delete {
+    cursor: pointer;
+    transition: 0.2s ease-in-out
+}
+
+.subtask__delete:hover {
+    color: $foreground-alt4;
+}
+
+.modal__submit {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgb(255, 161, 37);
+    box-shadow: 0 6px 12px rgba(255, 161, 37, 0);
+    transition: all 250ms ease;
+    cursor: pointer;
+}
+
+.modal__submit:hover {
+    box-shadow: 0 6px 12px rgba(255, 161, 37,0.25);
+}
+
+.modal__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.modal__close:hover {
+    color: $foreground-alt4;
+}

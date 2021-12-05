@@ -74,7 +74,7 @@ const Sidebar = () => {
     return (
         <div className={collapsed ? 'sidebar__collapsed' : 'sidebar'}>
             <div className={collapsed ? 'sidebar__top__collapsed' : 'sidebar__top'}>
-                <div className={`sidebar__title ${collapsed && 'text__collapsed'}`}>
+                <div className={`sidebar__title ${collapsed ? 'text__collapsed' : ''} `}>
                     <img width={36} alt="Logo" src={Logo} />
                     <span className="sidebar__name">FoxTask</span>
                 </div>
@@ -86,7 +86,7 @@ const Sidebar = () => {
                 {
                     routes.map(el => {
                         return (
-                            <Link to={el.path} key={el.name} className={`sidebar__route ${checkRouteActive(el.path) && 'sidebar__route__active'} ${collapsed && 'sidebar__route__collapsed'}`}>
+                            <Link to={el.path} key={el.name} className={`sidebar__route ${checkRouteActive(el.path) ? 'sidebar__route__active' : ''} ${collapsed ? 'sidebar__route__collapsed' : ''}`}>
                                 <div className="route__icon"><FontAwesomeIcon icon={el.logo} /></div>
                                 <span className={`route__text ${collapsed && 'text__collapsed'}`}>{ el.name }</span>
                             </Link>
@@ -94,21 +94,21 @@ const Sidebar = () => {
                     })
                 }
             </div>
-            <div className={collapsed && 'sidebar__bottom__collapsed'} onClick={handlePopUp}>
-            
+            <div className={collapsed ? 'sidebar__bottom__collapsed' : ''} onClick={handlePopUp}>
+
                 <motion.div className={collapsed ? 'sidebar__profile__collapsed' : 'sidebar__profile'} whileHover="hover">
                     <div className={ !popupOpen ? "sidebar__settings__popup-disable" : "sidebar__settings__popup"}> {/*sidebar__settings__popup-disable*/}
                         <ul className="sidebar__settings__container">
-                            <li className="sidebar__settings__item">Settings</li>    
-                            <li className="sidebar__settings__item" onClick={handleLogout}>Logout</li>    
+                            <li className="sidebar__settings__item">Settings</li>
+                            <li className="sidebar__settings__item">Logout</li>
                         </ul>
                     </div>
                     <div className="profile__left">
-                        <Gravatar className="profile__picture" size={32} email={user && user.email} />
-                        <span className={`profile__name ${collapsed && 'text__collapsed'}`}>{user && user.name}</span>
+                        <Gravatar className="profile__picture" size={32} email="yyakovliev02@gmail.com" />
+                        <span className={`profile__name ${collapsed ? 'text__collapsed' : ''}`}>Jenya</span>
                     </div>
                     <motion.div
-                        className={`profile__right ${collapsed && 'text__collapsed'}`}
+                        className={`profile__right ${collapsed ? 'text__collapsed' : ''}`}
                         variants={hoverMotion}
                     >
                         <FontAwesomeIcon icon={faCog} />

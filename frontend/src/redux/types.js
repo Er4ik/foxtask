@@ -10,6 +10,16 @@ const Auth = {
     LOGOUT: 'LOGOUT'
 };
 
+const Tasks = {
+    GET_TASKS: 'GET_TASKS',
+    GET_TASKS_FAIL: 'GET_TASKS_FAIL',
+    SET_TASKS: 'SET_TASKS',
+    CREATE_TASK: 'CREATE_TASK',
+    CREATE_TASK_SUCCESS: 'CREATE_TASK_SUCCESS',
+    CREATE_TASK_FAIL: 'CREATE_TASK_FAIL'
+}
+
 export const Types = {
-    Auth
+    Auth,
+    Tasks
 };

@@ -5,6 +5,7 @@ import App from './components/App';
 import { Provider } from 'react-redux';
 import './styles/index.scss';
 import store from './redux/configureStore';
+import 'react-day-picker/lib/style.css';
 
 ReactDOM.render(
   <React.StrictMode>
