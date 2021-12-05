@@ -25,7 +25,7 @@ const Tasks = () => {
                 </div>
                 <div className="header__action">
                     <div className="header__new header__button" onClick={() => {setPopupOpen(!popupOpen);}}>
-                        <span>Create Task</span>
+                        <span>Add Task</span>
                         <FontAwesomeIcon className="header__icon" icon={faPlusSquare} />
                     </div>
                     <div className="header__generate header__button" onClick={() => {setScheduleOpen(!scheduleOpen)}}>
