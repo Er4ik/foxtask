@@ -1,10 +1,11 @@
-import { Body, Controller, Delete, HttpCode, HttpStatus, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Headers, HttpCode, HttpStatus, Param, Patch, Post, UseGuards } from "@nestjs/common";
+import { AuthService } from "src/auth/auth.service";
 import { UserCreateDto } from "./dto/user-create.dto";
 import { UserLoginDto } from "./dto/user-login.dto";
 import { UserUpdateDto } from "./dto/user-update.dto";
 import { UserService } from "./user.service";
 
-@Controller('user')
+@Controller()
 export class UserController {
     constructor(private readonly userService: UserService) {}
 
@@ -14,21 +15,23 @@ export class UserController {
         return await this.userService.loginUser(userLoginDto);
     }
 
-    @Post()
+    @Post('/user')
     @HttpCode(HttpStatus.CREATED)
     async createUser(@Body() createUserDto: UserCreateDto): Promise<void> {
         return await this.userService.createUser(createUserDto);
     }
 
-    @Patch(':id')
+    @Patch('/user')
+    @UseGuards(AuthService)
     @HttpCode(HttpStatus.CREATED)
-    async updateUser(@Body() updateUserDto: UserUpdateDto, @Param('id') id: string): Promise<void> {
-        return await this.userService.updateUser(updateUserDto, id);
+    async updateUser(@Body() updateUserDto: UserUpdateDto, @Headers() header: object): Promise<void> {
+        return await this.userService.updateUser(updateUserDto, header);
     }
 
-    @Delete(':id')
+    @Delete('/user')
+    @UseGuards(AuthService)
     @HttpCode(HttpStatus.NO_CONTENT)
-    async deleteUser(@Param('id') id: string): Promise<void> {
-        return await this.userService.deleteUser(id);
+    async deleteUser(@Headers() header: object): Promise<void> {
+        return await this.userService.deleteUser(header);
     }
 }

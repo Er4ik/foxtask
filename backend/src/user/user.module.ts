@@ -1,9 +1,11 @@
 import { Module } from "@nestjs/common";
 import { JwtModule } from "@nestjs/jwt";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { AuthService } from "src/auth/auth.service";
+import { HelperService } from "src/helper/helper.service";
 import { UserController } from "./user.controller";
 import { User } from "./user.entity";
-import { AuthService, UserService } from "./user.service";
+import { Auth, UserService } from "./user.service";
 
 @Module({
     imports: [TypeOrmModule.forFeature([User]),
@@ -13,7 +15,7 @@ import { AuthService, UserService } from "./user.service";
       expiresIn: "24h"
     }
     })],
-    providers: [UserService, AuthService],
+    providers: [UserService, HelperService, Auth, AuthService],
     controllers: [UserController],
     exports: []
 })

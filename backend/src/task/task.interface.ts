@@ -1,41 +1,50 @@
+export interface subtask {
+    readonly name: string,
+    readonly time_spent_wanted: number
+}
+
 export interface createTaskBody {
-    name: string,
-    description: string,
-    tag?: string[],
-    difficulty: string,
-    importance?: string,
-    deadline: Date,
-    type: string,
+    readonly name: string,
+    readonly description: string,
+    readonly tag?: string[],
+    readonly difficulty: number,
+    readonly importance?: string,
+    readonly deadline: Date,
+    readonly type: string,
+    readonly subtask?: subtask,
 }
 
 export interface updateTaskBody {
-    name?: string,
-    description?: string,
-    tag?: string[],
-    difficulty?: string,
-    importance?: string,
-    deadline?: Date,
-    type?: string,
+    readonly name?: string,
+    readonly description?: string,
+    readonly tag?: string[],
+    readonly difficulty?: number,
+    readonly importance?: string,
+    readonly deadline?: Date,
+    readonly type?: string,
+    readonly subtask?: subtask,
 }
 
 export interface bodyCreateToDb {
-    name: string,
-    description: string,
-    tag?: string,
-    difficulty: number,
-    importance?: number,
-    deadline: Date,
-    type: string,
+    readonly name: string,
+    readonly description: string,
+    readonly tag?: string,
+    readonly difficulty: number,
+    readonly importance?: number,
+    readonly deadline: Date,
+    readonly type: string,
+    readonly subtask?: subtask,
 }
 
 export interface bodyUpdateToDb {
-    name?: string,
-    description?: string,
-    tag?: string,
-    difficulty?: number,
-    importance?: number,
-    deadline?: Date,
-    type?: string,
+    readonly name?: string,
+    readonly description?: string,
+    readonly tag?: string,
+    readonly difficulty?: number,
+    readonly importance?: number,
+    readonly deadline?: Date,
+    readonly type?: string,
+    readonly subtask?: subtask,
 }
 
 enum importance {

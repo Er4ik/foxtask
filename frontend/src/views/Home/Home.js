@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import './Home.scss';
 import axios from 'axios';
 import CountUp from 'react-countup';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+    const user = useSelector(state => state.auth.user);
+
     return (
         <div id="home">
-            <div className="home__title">Welcome, Jenya!</div>
+            <div className="home__title">Welcome, {user && user.name}!</div>
             <div className="top__grid">
                 <div className="grid__item">
                     <div className="item__text">

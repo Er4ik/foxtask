@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import Logo from '../../assets/logo_white_alt.svg';
 import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../redux/ducks/auth';
+import { useNavigate } from 'react-router-dom';
 
 const hoverMotion = {
     hover: {
@@ -37,9 +40,13 @@ const routes = [
 ];
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const history = useLocation();
     const [collapsed, setCollapsed] = useState(false);
     const [popupOpen, setPopupOpen] = useState(false);
+
+    const user = useSelector(state => state.auth.user);
 
     const checkRouteActive = path => {
         return history.pathname === path;
@@ -50,14 +57,19 @@ const Sidebar = () => {
             setCollapsed(false);
         }
         setPopupOpen(!popupOpen);
-    }
+    };
 
-    const handleCollapse = () =>{
+    const handleCollapse = () => {
         if (popupOpen) {
             setPopupOpen(false);
         }
         setCollapsed(!collapsed);
-    }
+    };
+    
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate('/login');
+    };
 
     return (
         <div className={collapsed ? 'sidebar__collapsed' : 'sidebar'}>
@@ -88,12 +100,12 @@ const Sidebar = () => {
                     <div className={ !popupOpen ? "sidebar__settings__popup-disable" : "sidebar__settings__popup"}> {/*sidebar__settings__popup-disable*/}
                         <ul className="sidebar__settings__container">
                             <li className="sidebar__settings__item">Settings</li>    
-                            <li className="sidebar__settings__item">Logout</li>    
+                            <li className="sidebar__settings__item" onClick={handleLogout}>Logout</li>    
                         </ul>
                     </div>
                     <div className="profile__left">
-                        <Gravatar className="profile__picture" size={32} email="yyakovliev02@gmail.com" />
-                        <span className={`profile__name ${collapsed && 'text__collapsed'}`}>Jenya</span>
+                        <Gravatar className="profile__picture" size={32} email={user && user.email} />
+                        <span className={`profile__name ${collapsed && 'text__collapsed'}`}>{user && user.name}</span>
                     </div>
                     <motion.div
                         className={`profile__right ${collapsed && 'text__collapsed'}`}

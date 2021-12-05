@@ -7,7 +7,7 @@ import Schedule from './Schedule';
 const Tasks = () => {
     const [scheduleOpen, setScheduleOpen] = useState(false);
     return (
-        <div id="tasks" className="tasks__wrapper">
+        <div id="tasks">
             <div className="tasks__header">
                 <div className="header__filter">
                     Sort by

@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("tasks")
 export class Task {
@@ -28,6 +28,9 @@ export class Task {
 
     @Column()
     id_user: number;
+
+    @OneToMany(() => Subtask, subtask => subtask.task, {cascade: true}) 
+    subtasks: Subtask[];
 }
 
 @Entity("subtasks")
@@ -41,6 +44,7 @@ export class Subtask {
     @Column()
     time_spent_wanted: number;
 
-    @Column()
-    task_id: number;
+    @ManyToOne(() => Task, task => task.subtasks, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
+    @JoinColumn({name: 'task_id'})
+    task: Task;
 }
